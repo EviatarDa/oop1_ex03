@@ -5,6 +5,7 @@
 
 class Zi
 {
+
 public:
 	Zi(int real = 0, int img = 0);
 	int real() const;
