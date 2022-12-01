@@ -12,9 +12,9 @@ public:
 	int imag() const;
 	int norm() const;
 	Zi conj() const;
-	//bool dividedBy(const Zi&) const;
-	Zi& operator--();
-	Zi operator--(int);
+	bool dividedBy(const Zi&) const;
+	Zi& operator-();
+	
 
 private:
 	int m_real;
@@ -25,7 +25,8 @@ private:
 Zi operator+(const Zi&, const Zi&);
 Zi operator-(const Zi&, const Zi&);
 Zi operator*(const Zi&, const Zi&);
-//Zi operator/(const Zi&, const Zi&);
+Zi operator/(const Zi&, const Zi&);
+Zi operator%(const Zi&, const Zi&);
 bool operator==(const Zi&, const Zi&);
 bool operator!=(const Zi&, const Zi&);
 std::ostream& operator<<(std::ostream&, const Zi&);
