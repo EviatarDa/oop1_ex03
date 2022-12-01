@@ -9,8 +9,8 @@ add_executable (${CMAKE_PROJECT_NAME})
 add_library (obj STATIC)
 target_link_libraries (${CMAKE_PROJECT_NAME} PRIVATE obj)
 
-target_compile_options(obj PRIVATE $<$<CONFIG:DEBUG>:-fsanitize=address>)
-target_link_options(obj PRIVATE $<$<CONFIG:DEBUG>:-fsanitize=address>)
+#target_compile_options(obj PRIVATE $<$<CONFIG:DEBUG>:-fsanitize=address>)
+#target_link_options(obj PRIVATE $<$<CONFIG:DEBUG>:-fsanitize=address>)
 
 add_subdirectory (include)
 add_subdirectory (src)

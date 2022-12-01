@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iosfwd>
+#include<cmath>
 
 
 class Zi
@@ -23,10 +24,20 @@ private:
 };
 
 Zi operator+(const Zi&, const Zi&);
+Zi& operator+=(Zi&, const Zi&);
+
 Zi operator-(const Zi&, const Zi&);
+Zi operator-=(Zi&, const Zi&);
+
 Zi operator*(const Zi&, const Zi&);
+Zi& operator*=( Zi&, const Zi&);
+
 Zi operator/(const Zi&, const Zi&);
+Zi& operator/=(Zi&, const Zi&);
+
 Zi operator%(const Zi&, const Zi&);
+Zi& operator%=(Zi&, const Zi&);
+
 bool operator==(const Zi&, const Zi&);
 bool operator!=(const Zi&, const Zi&);
 std::ostream& operator<<(std::ostream&, const Zi&);
