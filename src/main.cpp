@@ -1,15 +1,22 @@
 #include "Zi.h"
-
+#include "Vector.h"
 #include <iostream>
 
 int main()
 {
-    auto z1 = Zi(8,1);
-    auto z2 = Zi(27,-23);
+    /*
+    auto v1 = Zi(4, 5);
 
-   // z2 %= z1;
+    v1 = v1 * -2;
 
-  //  std::cout << z2;
-    //
-    std::cout << z2 % z1;
+    std::cout << v1;
+    */
+
+    auto z1 = Zi(4, 5);
+    auto v1 = Vector(4, z1);
+
+    //auto v3 = -1 * v1;
+
+   // std::cout << v1 << "v3: " << v3;
+    
 }

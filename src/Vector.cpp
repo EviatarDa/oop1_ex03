@@ -26,22 +26,19 @@ const Zi& Vector::operator[](int index) const
 	return m_array[index];
 }
 
-Vector& Vector::operator-()
+Vector Vector::operator-()
 {
-	for (int index = 0; index < this->size(); index++)
+	Vector v(*this);
+	for (int index = 0; index < m_array.size(); index++)
 	{
-		-(this[index]);
+		-(v[index]);
 	}
+
+	return v;
 }
 
-Vector& Vector::operator*(int s)
-{
-	for (int index = 0; index < this->size(); index++)
-	{
-		this[index] = this[index] * s;
-	}
-	// TODO: insert return statement here
-}
+
+
 
 std::ostream& operator<<(std::ostream& cout, const Vector& v) 
 {
@@ -90,11 +87,6 @@ Vector operator+(const Vector&v1, const Vector&v2)
 	return v3;
 }
 
-
-
-
-
-
 Vector& operator+=(Vector& v1, const Vector& v2)
 {
 	v1 = v1 + v2;
@@ -106,6 +98,21 @@ Vector& operator-=(Vector& v1, const Vector&v2 )
 	v1 = v1 - v2;
 	return v1;
 }
+
+Vector& Vector::operator*(int s)
+{
+	for (int index = 0; index < m_array.size(); index++)
+	{
+		m_array[index] = (m_array[index]) * s;
+	}
+	return *this;
+}
+/*
+Vector& Vector::operator*(Vector v, int s)
+{
+	return v * s;
+}
+*/
 
 Vector operator*(const Vector& v1, const Vector&v2)
 {
@@ -182,15 +189,15 @@ Vector operator-(const Vector& v1, const Vector& v2)
 			v3[index] = v1[index];
 		}
 	}
-	else//////////////////////////////// todo check
+	else
 	{
 		for (; index < v1.size(); index++)
 		{
-			v3[index] = v2[index] - v1[index];
+			v3[index] = v1[index] - v2[index];
 		}
 		for (; index < v2.size(); index++)
 		{
-			v3[index] = v2[index];
+			v3[index] -= v2[index];
 		}
 	}
 

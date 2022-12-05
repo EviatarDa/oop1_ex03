@@ -10,8 +10,10 @@ public :
 	int size()const;
 	Zi& operator [](int index);
 	const Zi& operator [](int index) const; // read only 
-	Vector& operator-();
-	Vector& operator*(int);//////////////////todo check
+	Vector operator-();
+	Vector& operator*(int);
+	//Vector& operator*(Vector, int);
+
 
 
 private:
@@ -19,7 +21,7 @@ private:
 
 };
 
-std::ostream& operator<<(std::ostream&, const Vector&);/////////////
+std::ostream& operator<<(std::ostream&, const Vector&);
 
 Vector operator+(const Vector&, const Vector&);
 Vector& operator+=(Vector&, const Vector&);
@@ -33,15 +35,9 @@ Vector& operator*=(Vector&, const Vector&);
 bool operator==(const Vector&, const Vector&);
 bool operator!=(const Vector&, const Vector&);
 
-
-
 int max(int x, int y);
 int min(int x, int y);
 
-
-
-
 //operator * with scalar 
-//operator == !=
 
 

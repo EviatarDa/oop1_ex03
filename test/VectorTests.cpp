@@ -1,4 +1,4 @@
-/*
+
 #include <catch2/catch_test_macros.hpp>
 
 #include "Vector.h"
@@ -49,6 +49,7 @@ TEST_CASE("Operations with different size vectors", "[Vector]")
     v1[1] = Zi(3, -6);
 
     auto v2 = v0 - v1;
+
     auto oss = std::ostringstream();
     oss << v2;
 
@@ -62,4 +63,3 @@ TEST_CASE("Operations with different size vectors", "[Vector]")
     REQUIRE(v3[0] == v1[0]);
     REQUIRE(v3[1] == 0);
 }
-*/

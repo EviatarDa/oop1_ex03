@@ -31,8 +31,8 @@ Zi Zi::conj() const
 
 Zi& Zi::operator-()
 {
-	m_real--;
-	m_img--;
+	this->m_real *= -1;
+	this->m_img *= -1;
 	return *this;
 }
 
@@ -64,7 +64,11 @@ bool operator!=(const Zi& z1, const Zi& z2)
 
 std::ostream& operator<<(std::ostream& cout, const Zi& z)
 {
-	return cout << z.real() << " " << z.imag() << "i\n";
+	if (z.imag() >= 0 )
+	return cout << z.real() << "+" << z.imag() << "i";
+	else
+		return cout << z.real() << z.imag() << "i";
+
 }
 
 

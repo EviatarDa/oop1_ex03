@@ -1,4 +1,4 @@
-/*
+
 #include <catch2/catch_test_macros.hpp>
 
 #include "Zi.h"
@@ -49,4 +49,3 @@ TEST_CASE("Zi operations", "[Zi]")
         REQUIRE(z2 % z3 == Zi(0, -2));
     }
 }
-*/
