@@ -1,15 +1,16 @@
 #pragma once
-#include "ArrayStructure.h"
+#include "ArrayStructure.h" 
 
 
 
-ArrayStrcuture::ArrayStrcuture(int size, const Zi& value = Zi()):
-	m_size(size)
+ArrayStructure::ArrayStructure(int size, const Zi& value)
+	:m_size(size)
 {
 	m_array = new (std::nothrow) Zi[size];
 	if (m_array == NULL)
 	{
 		std::cerr << "couldnt allocate memory\n";
+		exit(EXIT_FAILURE);
 	}
 
 	for (int index = 0; index < size; ++index)
@@ -18,13 +19,14 @@ ArrayStrcuture::ArrayStrcuture(int size, const Zi& value = Zi()):
 	}
 }
 
-ArrayStrcuture::ArrayStrcuture(int size, const Zi arr[]):
-	m_size(size)
+ArrayStructure::ArrayStructure(int size, const Zi arr[])
+	:m_size(size)
 {
 	m_array = new (std::nothrow) Zi[size];
 	if (m_array == NULL)
 	{
 		std::cerr << "couldnt allocate memory\n";
+		exit(EXIT_FAILURE);
 	}
 
 	for (int index = 0; index < size; ++index)
@@ -33,58 +35,60 @@ ArrayStrcuture::ArrayStrcuture(int size, const Zi arr[]):
 	}
 }
 
-ArrayStrcuture::ArrayStrcuture(const ArrayStrcuture& Other):
-	ArrayStrcuture(Other.m_size, Other.m_array)
+ArrayStructure::ArrayStructure(const ArrayStructure& Other)
+	:ArrayStructure(Other.m_size, Other.m_array)
 {
 }
 
-ArrayStrcuture::~ArrayStrcuture()
+ArrayStructure::~ArrayStructure()
 {
 	delete[] m_array;
 }
 
-ArrayStrcuture& ArrayStrcuture::operator=(const ArrayStrcuture& Other)
+ArrayStructure& ArrayStructure::operator=(const ArrayStructure& Other)
 {
 	if (this != &Other)
 	{
 		m_size = Other.m_size;
-		delete[] Other.m_array;
+		delete[] m_array;
 
 		m_array = new (std::nothrow) Zi[m_size];
 		if (m_array == NULL)
 		{
 			std::cerr << "couldnt allocate memory\n";
+			exit(EXIT_FAILURE);
+
 		}
 
 		for (int index = 0; index < m_size; ++index)
 		{
 			m_array[index] = Other.m_array[index];
 		}
-
 	}
+	return *this;
 }
 
-Zi& ArrayStrcuture::operator[](int index)
+Zi& ArrayStructure::operator[](int index)
 {
 	return m_array[index];
 }
 
-const Zi& ArrayStrcuture::operator[](int index) const
+const Zi& ArrayStructure::operator[](int index) const
 {
 	return m_array[index];
 }
 
-int ArrayStrcuture::size() const
+int ArrayStructure::size() const
 {
 	return m_size;
 }
 
-bool ArrayStrcuture::empty() const 
+bool ArrayStructure::empty() const
 {
 	return (m_size > 0);
 }
 
-bool operator==(const ArrayStrcuture& arr1, const ArrayStrcuture& arr2)
+bool operator==(const ArrayStructure& arr1, const ArrayStructure& arr2)
 {
 	if (arr1.size() != arr2.size())
 		return false;
@@ -99,12 +103,12 @@ bool operator==(const ArrayStrcuture& arr1, const ArrayStrcuture& arr2)
 	}
 }
 
-bool operator!=(const ArrayStrcuture&array1 , const ArrayStrcuture& array2)
+bool operator!=(const ArrayStructure&array1 , const ArrayStructure& array2)
 {
 	return !(array1 == array2);
 }
 
-ArrayStrcuture operator+(const ArrayStrcuture&array1, const ArrayStrcuture&array2)
+ArrayStructure operator+(const ArrayStructure&array1, const ArrayStructure&array2)
 {
 	Zi* array3 = new (std::nothrow) Zi[array1.size() + array2.size()];
 	int index = 0;
@@ -117,10 +121,10 @@ ArrayStrcuture operator+(const ArrayStrcuture&array1, const ArrayStrcuture&array
 		array3[index] = array2[index2];
 	}
 
-	return ArrayStrcuture(array1.size() + array2.size(), array3);
+	return ArrayStructure(array1.size() + array2.size(), array3);
 }
 
-ArrayStrcuture& operator+=(ArrayStrcuture&arr1, const ArrayStrcuture&arr2)
+ArrayStructure& operator+=(ArrayStructure&arr1, const ArrayStructure&arr2)
 {
 	arr1 = arr1 + arr2;
 	return arr1;

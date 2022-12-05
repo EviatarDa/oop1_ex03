@@ -3,15 +3,15 @@
 #include <new>
 #include <iostream>
 
-class ArrayStrcuture
+class ArrayStructure
 {
 public:
-	explicit ArrayStrcuture(int size = 0, const Zi& value = Zi()); //c - tor explicit
-	ArrayStrcuture(int size, const Zi arr[]);// c- tor
-	ArrayStrcuture(const ArrayStrcuture& Other); // copy c-tor;
-	~ArrayStrcuture();
+	explicit ArrayStructure(int size = 0, const Zi& value = Zi()); //c - tor explicit
+	ArrayStructure(int size, const Zi arr[]);// c- tor
+	ArrayStructure(const ArrayStructure& Other); // copy c-tor;
+	~ArrayStructure();
 
-	ArrayStrcuture& operator=(const ArrayStrcuture& Other);
+	ArrayStructure& operator=(const ArrayStructure& Other);
 	Zi& operator [](int index); // to change
 	const Zi& operator [](int index) const ; // read only 
 
@@ -23,10 +23,10 @@ private:
 	int m_size;
 };
 
-bool operator==(const ArrayStrcuture& , const ArrayStrcuture& );
-bool operator!=(const ArrayStrcuture& , const ArrayStrcuture& );
-ArrayStrcuture operator+(const ArrayStrcuture& , const ArrayStrcuture& );
-ArrayStrcuture& operator+=( ArrayStrcuture& , const ArrayStrcuture& );
+bool operator==(const ArrayStructure& , const ArrayStructure& );
+bool operator!=(const ArrayStructure& , const ArrayStructure& );
+ArrayStructure operator+(const ArrayStructure& , const ArrayStructure& );
+ArrayStructure& operator+=(ArrayStructure& , const ArrayStructure& );
 
 
 
