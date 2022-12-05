@@ -1,6 +1,7 @@
 #pragma once
 #include "ArrayStructure.h"
 
+
 class Vector
 {
 public :
@@ -9,18 +10,38 @@ public :
 	int size()const;
 	Zi& operator [](int index);
 	const Zi& operator [](int index) const; // read only 
+	Vector& operator-();
+	Vector& operator*(int);//////////////////todo check
+
 
 private:
 	ArrayStructure m_array;
 
 };
 
-std::ostream& operator<<(std::ostream&, const Vector&);
+std::ostream& operator<<(std::ostream&, const Vector&);/////////////
+
+Vector operator+(const Vector&, const Vector&);
+Vector& operator+=(Vector&, const Vector&);
+
+Vector operator-(const Vector&, const Vector&);
+Vector& operator-=(Vector&, const Vector&);
+
+Vector operator*(const Vector&, const Vector&);
+Vector& operator*=(Vector&, const Vector&);
+
+bool operator==(const Vector&, const Vector&);
+bool operator!=(const Vector&, const Vector&);
 
 
-//operator + - 
-//operator * with scalar and with vector 
-//onari operator - 
+
+int max(int x, int y);
+int min(int x, int y);
+
+
+
+
+//operator * with scalar 
 //operator == !=
 
-//operator cout <<
+
