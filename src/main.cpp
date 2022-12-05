@@ -10,6 +10,6 @@ int main()
    // z2 %= z1;
 
   //  std::cout << z2;
-
+    //
     std::cout << z2 % z1;
 }
