@@ -65,6 +65,7 @@ Vector operator+(const Vector&v1, const Vector&v2)
 	Vector v3(MaxSize);
 
 	int index = 0;
+	//checks which one is bigger
 	for (; index < min(v1.size(), v2.size()); index++)
 	{
 		v3[index] = v1[index] + v2[index];
@@ -87,18 +88,22 @@ Vector operator+(const Vector&v1, const Vector&v2)
 	return v3;
 }
 
+//reuse of operator +
 Vector& operator+=(Vector& v1, const Vector& v2)
 {
 	v1 = v1 + v2;
 	return v1;
 }
 
+//reuse of operator -
 Vector& operator-=(Vector& v1, const Vector&v2 )
 {
 	v1 = v1 - v2;
 	return v1;
 }
 
+
+/*
 Vector& Vector::operator*(int s)
 {
 	for (int index = 0; index < m_array.size(); index++)
@@ -107,6 +112,8 @@ Vector& Vector::operator*(int s)
 	}
 	return *this;
 }
+*/
+
 /*
 Vector& Vector::operator*(Vector v, int s)
 {
@@ -152,6 +159,35 @@ Vector& operator*=(Vector&v1, const Vector&v2)
 	return v1;
 }
 
+Vector operator*(const Vector& v1, int s)
+{
+	Vector v(v1);
+	for (int index = 0; index < v1.size(); index++)
+	{
+		v[index] = (v1[index]) * s;
+	}
+	
+	return v;
+}
+
+Vector& operator*=(Vector& v, int s)
+{
+	v = v * s;
+	return v;
+}
+
+Vector operator*(int s, const Vector& v1)
+{
+	Vector v(v1);
+	v = v1 * s;
+	return v;
+}
+
+Vector& operator*=(int s, Vector&v)
+{
+	return v *= v * s;
+}
+
 bool operator==(const Vector&v1, const Vector&v2)
 {
 	if (v1.size() != v2.size())
@@ -177,7 +213,7 @@ Vector operator-(const Vector& v1, const Vector& v2)
 	int MaxSize = max(v1.size(), v2.size());
 	Vector v3(MaxSize);
 	int index = 0;
-
+	//check which one is longer
 	if (v1.size() > v2.size())
 	{
 		for (; index < v2.size(); index++)

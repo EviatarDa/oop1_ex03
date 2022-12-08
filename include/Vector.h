@@ -11,8 +11,6 @@ public :
 	Zi& operator [](int index);
 	const Zi& operator [](int index) const; // read only 
 	Vector operator-();
-	Vector& operator*(int);
-	//Vector& operator*(Vector, int);
 
 
 
@@ -32,12 +30,20 @@ Vector& operator-=(Vector&, const Vector&);
 Vector operator*(const Vector&, const Vector&);
 Vector& operator*=(Vector&, const Vector&);
 
+
+//scalar:
+Vector operator * (const Vector&, int);
+Vector& operator*=(Vector& , int );
+Vector operator * ( int, const Vector&);
+Vector& operator*=( int, Vector&);
+
+
 bool operator==(const Vector&, const Vector&);
 bool operator!=(const Vector&, const Vector&);
 
 int max(int x, int y);
 int min(int x, int y);
 
-//operator * with scalar 
+
 
 

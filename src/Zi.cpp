@@ -3,7 +3,7 @@
 #include"Zi.h"
 #include<ostream>
 
-
+//c- tor
 Zi::Zi(int real, int img) 
 	: m_real(real), m_img(img)
 {
@@ -112,12 +112,15 @@ Zi& operator*=(Zi& z1, const Zi& z2)
 	return z1;
 }
 
-
+/*
+dup with the conj and divide by the norm each part of the complex num*/
 Zi operator/(const Zi& z1, const Zi& z2)
 {
 	return Zi(round((double)(z1*z2.conj()).real() / z2.norm()) ,round((double)(z1 * z2.conj()).imag() / z2.norm()));
 }
 
+
+//resue of the / operator
 Zi& operator/=(Zi&z1, const Zi&z2)
 {
 	z1 = z1 / z2;

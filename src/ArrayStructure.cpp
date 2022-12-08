@@ -1,8 +1,9 @@
 #pragma once
 #include "ArrayStructure.h" 
 
-
-
+/*
+c- tor allocate the new arr and insert the num acoording to the value 
+*/
 ArrayStructure::ArrayStructure(int size, const Zi& value)
 	:m_size(size)
 {
