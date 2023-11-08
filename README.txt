@@ -1,27 +1,26 @@
-תרגיל 3 אופרטורים על וקטורים מעל חוג המורכבים 
+Exercise 3 - Operators on Complex Vectors
 
-שמות המגישים:
-אביתר דודיאן 207259755
-שיר ידיד 208327957
+Contributors:
+Eviatar Davidiyan
+Shir Yadid 
 
+This exercise deals with constructing classes for complex vectors over the field of complex numbers. We are required to build appropriate constructors based on the exercise instructions. Additionally, we need to create class functions and decide on suitable fields.
 
-התרגיל עוסק בבניית מחלקות לוקטורים דנמאיים מעל שדה המורכבים.
-יש לבנות בנאים מתאימים לפי הוראות התרגיל. כמו כן עלינו לבנות פונקציות מחלקה מתאימות ולהחליט על שדות מתאימים
+Files we've created:
+- ArrayStructure.h: Definition of the dynamic allocation class for vector operations.
+- ArrayStructure.cpp: Implementation of constructors and functions for dynamic allocation, including delete, copy, and assignment operations.
+- Vector.h: Definition of the Vector class containing a dynamic array.
+- Vector.cpp: Implementation of constructors and functions for the Vector class.
+- Zi.h: Definition of the class for complex numbers and relevant operators.
+- Zi.cpp: Implementation of operators and constructors for the Zi class.
 
-הקבצים שיצרנו :
-ArrayStructure.h הגדרת מחלקת ההקצאות הדינמאיות בוקטור
-ArrayStructure. cpp מימוש הבנאים והפונקציות של ההקצאות דינימאיות מחיקה העתקה והשמה.
-Vector.h הגדרת מחלקת וקטור שמכילה מערך דינמאי 
-Vector.cpp מימוש הבנאים והפונקציות של המחלקה.
-Zi.hהגדרת מחלקת מס מורכבים ואופרטורים רלונטיים 
-ZI.cpp מימוש האופרטורים והבנאים
+Key Data Structures:
+- A dynamically allocated array that contains objects of type Zi.
 
+Overview:
 
-מבני נתונים עיקריים :
-מערך שמוקצה דינמאי ובו יש אוביקטים מסוג Zi 
+Notable Algorithms:
 
-אלוגריתמים ראויים לציון :
+Known Issues:
 
-
-באגים ידועים :
-הערות :
+Notes:
